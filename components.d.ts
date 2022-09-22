@@ -8,8 +8,11 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ButtonRepo: typeof import('./src/components/ButtonRepo.vue')['default']
+    Foot: typeof import('./src/components/Foot.vue')['default']
+    Footer: typeof import('./src/components/Footer.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Vfooter: typeof import('./src/components/Vfooter.vue')['default']
   }
 }

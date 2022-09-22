@@ -1,11 +1,10 @@
 <template>
   <main>
-    <div class="bg-blue-50 h-screen w-full p-10">
+    <div class="bg-blue-50 min-h-screen w-full p-10">
       <h1>Home Page</h1>
       <p>Welcome to {{ author.name }}'s new site</p>
       <!-- video grid container -->
 
-      <!-- Footer -->
     </div>
 
   </main>
