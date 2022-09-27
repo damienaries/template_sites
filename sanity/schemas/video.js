@@ -9,11 +9,6 @@ export default {
             title: 'Title'
         },
         {
-            name: 'video',
-            type: 'string',
-            title: 'Video'
-        },
-        {
             name: 'cover',
             type: 'image',
             title: 'Cover'
@@ -23,5 +18,15 @@ export default {
             type: 'string',
             title: 'Produced Year'
         },
+        {
+            name: 'isHomapageHero',
+            type: 'boolean',
+            title: 'Hero video'
+        },
+        {
+            name: 'url',
+            type: 'url',
+            title: 'Video Url'
+        }
     ]
 }

@@ -1,48 +1,69 @@
-# Vite, Vue3, Tailwind CSS (single-page app)
+# albudman-video
 
-![Vite, Vue, Tailwind CSS](https://user-images.githubusercontent.com/11320080/111277027-a9384c00-8640-11eb-8323-21889bd7c609.png)
+## Build Setup
 
-This starter template includes:
+```bash
+# install dependencies
+$ npm install
 
-- [**Vite 3**](https://vitejs.dev/guide/)
-- [**Vue 3**](https://vuejs.org/guide/introduction.html)
-- [**Tailwind CSS 3**](https://tailwindcss.com/docs/configuration)
-- [**Vue Router**](https://github.com/vuejs/router)
-- [**@vueuse/head**](https://github.com/vueuse/head) - document head manager
-- [**TypeScript**](https://vuejs.org/guide/typescript/overview.html) - write vue files as `<script setup>` or `<script setup lang="ts">`
-- [**Inter var font**](https://github.com/rsms/inter) (self-hosted, woff2, v3.19, with 'preload' attr, check out index.html)
-- [**Headless UI**](https://headlessui.com/vue/menu) - unstyled UI components, designed to integrate beautifully with Tailwind CSS
-- [**Heroicons**](https://github.com/tailwindlabs/heroicons) - beautiful hand-crafted SVG icons,
-  by the makers of Tailwind CSS
-- [**prettier-plugin-tailwindcss**](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - automatic class sorting with Prettier
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-First-party plugins needed for Tailwind UI:
+# build for production and launch server
+$ npm run build
+$ npm run start
 
-- [**tailwindcss/forms**](https://github.com/tailwindlabs/tailwindcss-forms)
-- [**tailwindcss/line-clamp**](https://github.com/tailwindlabs/tailwindcss-line-clamp)
-- [**tailwindcss/typography**](https://tailwindcss.com/docs/typography-plugin)
-- [**tailwindcss/aspect-ratio**](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
-
-Unplugin Utilities:
-
-- [**unplugin-vue-components**](https://github.com/antfu/unplugin-vue-components) - components auto importing
-- [**unplugin-auto-import**](https://github.com/antfu/unplugin-auto-import) - auto import the most used APIs
-- [**unplugin-vue-router**](https://github.com/posva/unplugin-vue-router) - file based routing for vue-router
-
-## Usage
-
-```apache
-# install #
-
-npx degit web2033/vite-vue3-tailwind-starter vvt-app
-cd vvt-app
-npm i
-
-# run #
-
-npm run dev
-npm run build
-npm run serve
+# generate static project
+$ npm run generate
 ```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/web2033/vite-vue3-tailwind-starter)
+For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+
+## Special Directories
+
+You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+
+### `assets`
+
+The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+
+### `components`
+
+The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+
+### `layouts`
+
+Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+
+
+### `pages`
+
+This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+
+### `plugins`
+
+The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+
+### `static`
+
+This directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/static/robots.txt` is mapped as `/robots.txt`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+
+### `store`
+
+This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
