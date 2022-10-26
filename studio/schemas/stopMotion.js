@@ -1,13 +1,12 @@
 export default {
-    name: "video",
-    title: "Video",
+    name: "stopMotion",
+    title: "Stop Motion",
     type: "document",
     fields: [
         {
             name: "title",
             title: "Title",
             type: "string",
-            validation: Rule => Rule.required()
         },
         {
             name: "url",

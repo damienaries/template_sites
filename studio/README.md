@@ -2,7 +2,17 @@
 
 Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
 
-Now you can do the following things:
+Run Site Content Back End Management
+sanity start
+
+Navigate to http://localhost:3333
+
+Add Content
+Edit Schemas - will match schemas imported in schema.js
+
+
+
+More information about Sanity:
 
 - [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
 - [Join the community Slack](https://slack.sanity.io/?utm_source=readme)

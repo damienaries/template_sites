@@ -1,6 +1,6 @@
 export default {
-    name: "video",
-    title: "Video",
+    name: "visuals",
+    title: "Visuals",
     type: "document",
     fields: [
         {
