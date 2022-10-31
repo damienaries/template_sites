@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         'black': '#000011',
-        'white': '#ffeeff',
+        'white': '#ffffff',
         gray: {
           '100': '#fcfffc',
           '500': '#b5aeb1'
@@ -27,7 +27,6 @@ module.exports = {
 
       },
       spacing: {
-        // '1/2': '50vh',
         '4': '1rem',
         '8': '2rem'
       }

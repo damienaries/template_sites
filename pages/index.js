@@ -1,21 +1,29 @@
+import {useState} from 'react';
 import Layout from '../components/Layout';
-import HeroBackground from '../components/HeroBackground';
-import HeroImg from '../public/assets/img/home-balloons.png';
-import Image from 'next/image';
+import HomeBanner from '../components/HomeBanner';
+import Work from '../components/Work';
+import About from '../components/About';
+import { indexPageQuery } from '../lib/queries';
+import { sanityClient } from '../lib/sanity.js';
 
-export default function Home() {
+export default function Home({ videos }) {
+  const [aboutOpen, setAboutOpen] = useState(false);
+
+  const showWork = () => {
+   setAboutOpen(false);   
+  }
+
+  const showAbout = () => {
+      setAboutOpen(!aboutOpen)
+  }
+
   return (
-    <div className="main">
-      <section className="hero w-full bg-gray-100 relative">
-        <HeroBackground /> {/* bg pattern */}
-        <div className="hero-content w-1/2 absolute left-1/2 -translate-x-1/2 text-center">
-          <h1 className="text-4xl md:text-6xl xl:text-7xl text-green-100 font-semibold font-thin font-serif -transform-y-8 relative z-10">Alex Budman</h1>
-          <div className="image-container border border-red-500 -mt-8 ">
-            <Image src={HeroImg} width={600} height={400} layout="responsive" priority />
-          </div>
-        </div>
+    <div className="main overflow-x-hidden">
+      <HomeBanner showWork={showWork} showAbout={showAbout} />
+      <section className="relative">
+        <Work videos={videos} />
+        <About aboutOpen={aboutOpen} />
       </section>
-
     </div>  
   )
 }
@@ -26,4 +34,14 @@ Home.getLayout = function getLayout(page){
       {page}
     </Layout>
   )
+}
+
+export async function getStaticProps(){
+  const videos = await sanityClient.fetch(indexPageQuery);
+
+  return {
+    props: {
+      videos
+    }
+  }
 }
