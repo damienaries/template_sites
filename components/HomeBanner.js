@@ -9,9 +9,9 @@ export default function HomeBanner ({ showWork, showAbout }) {
                 <h4 className="uppercase text-sm md:text-base">
                     Director - Videographer - Editor - Consultant
                 </h4>
-                <div className="mt-2 flex">
-                    <h4 className="mr-4 tracking-widest" onClick={showWork}>Work</h4>
-                    <h4 className="mr-4 tracking-widest" onClick={showAbout}>About</h4>
+                <div className="mt-8 flex">
+                    <h4 className="mr-4 tracking-widest text-xl hover:text-gray-600 hover:underline cursor-pointer" onClick={showWork}>Work</h4>
+                    <h4 className="mr-4 tracking-widest text-xl hover:text-gray-600 hover:underline cursor-pointer" onClick={showAbout}>About</h4>
                 </div>  
             </div>
             
