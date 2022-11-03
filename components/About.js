@@ -1,4 +1,5 @@
-export default function About ({aboutOpen}) {
+export default function About ({aboutOpen, author}) {
+    const {title, featuredOn, about} = author;
 
     const positioning = aboutOpen ? 'left-0' : 'left-full';
 
@@ -8,15 +9,14 @@ export default function About ({aboutOpen}) {
                 How it Happens
             </h2>
             <p className="text-black tracking-wide mt-4 lg:text-xl">
-            Hi! My name is Alex Budman and I am a one woman show. I shoot, direct, edit and produce shoots.
+                {about}
             </p>
             <section className="mt-4">
-                <h6 className="my-4">See my stuff Featured here</h6>
+                <h6 className="my-4">See Me Featured Here</h6>
                 <ul>
-                    {/* for links in featured work */}
-                    <li className="my-2 text-green-300 hover:underline cursor-pointer">Feature 1</li>
-                    <li className="my-2 text-green-300 hover:underline cursor-pointer">Feature 2</li>
-                    <li className="my-2 text-green-300 hover:underline cursor-pointer">Feature 3</li>
+                {featuredOn && featuredOn.map(r => (
+                    <li className="my-2 text-green-300 hover:underline cursor-pointer" key={r}>{r}</li>
+                ))}
                 </ul>
             </section>
         </section>

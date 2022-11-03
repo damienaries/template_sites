@@ -22,3 +22,12 @@ main, .main {
   min-height: 95vh;
   width: 100%;
 }
+
+
+/*  Utilities */
+
+.center {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}

@@ -6,7 +6,7 @@ export default function VideoPlayer({ title, url }){
             <ReactPlayer 
                 url={url} 
                 playing={false} 
-                controls={false}
+                controls={false || 0}
                 width={800}
                 height={500}
                 volume={.7}
