@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   rewrites: () => [STUDIO_REWRITE],
   images: {
-    domains: ['via.placeholder.com'],
+    domains: ['via.placeholder.com', 'cdn.sanity.io'],
   }
 }
 

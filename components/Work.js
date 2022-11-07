@@ -1,16 +1,15 @@
-import VideoPlayer from './VideoPlayer';
+import { useState } from 'react';
 import LazyVideoPlayer from './LazyVideoPlayer';
 
-// TODO grab thumbnail for each vid and add to sanity
 // animate component loading 
 
-export default function Work({ videos }){
-
+export default function Work({ videos, visuals }){
+    const [content, setContent] = useState([...videos, ...visuals]);
     return (
-        <div className="w-full md:w-11/12 px-4 my-8 mx-auto bg-white grid grid-cols-1 md:grid-cols-2">
+        <div className="w-full md:w-11/12 px-4 mt-8 mb-20 mx-auto bg-white grid grid-cols-1 md:grid-cols-2">
             {
-                videos && videos.map(v => (
-                    <LazyVideoPlayer title={v.title} url={v.url} key={v.title}/>
+                content && content.map((video, idx) => (
+                    <LazyVideoPlayer video={video} key={idx}/>
                 ))
             }
         </div>  

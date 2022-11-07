@@ -14,5 +14,10 @@ export default {
             type: "url",
             validation: Rule => Rule.required()
         },
+        {
+            name: 'thumbnail',
+            title: 'Thumbnail',
+            type: 'image'
+        }
     ]
 }

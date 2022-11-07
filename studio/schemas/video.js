@@ -10,10 +10,20 @@ export default {
             validation: Rule => Rule.required()
         },
         {
-            name: "url",
-            title: "Url",
-            type: "url",
+            name: "id",
+            title: "Id",
+            type: "string",
             validation: Rule => Rule.required()
         },
+        {
+            name: 'thumbnail',
+            title: 'Thumbnail',
+            type: 'image'
+        },
+        {
+            name: 'service',
+            title: 'Service',
+            type: 'string'
+        }
     ]
 }

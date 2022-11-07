@@ -23,7 +23,7 @@ export default {
             name: "featuredOn",
             title: "Featured On",
             type: "array",
-            of: [{type: "url"}]
+            of: [{type: 'visuals'}]
         }
     ]
 }
