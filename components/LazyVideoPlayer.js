@@ -1,22 +1,26 @@
 import { useState } from "react";
-import PlayIcon from '../components/icons/PlayIcon';
 import styled from "@emotion/styled";
 import VideoPlayer from "./VideoPlayer";
 import Image from "next/image";
 import { urlFor } from "../lib/sanity";
 
-// fix videos in responsive frame
 // expand and shrink vid size on play/not play
-// todo cache videos
-// custom animations and transitions with styled?
+// hover overlay
+// custom animations and transitions with styled
 
 export default function LazyVideoPlayer({ video }){
     const { id, service, thumbnail, title } = video;
     const [showVideo, setShowVideo] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handleClick = () => {
+        setShowVideo(!showVideo);
+        setIsPlaying(!isPlaying);
+    }
     
     return (
-        <div className="video-wrapper w-full" 
-            onClick={() => setShowVideo(!showVideo)}>
+        <VideoWrapper className={`w-full ${showVideo ? 'full-size-video' : ''}`} 
+            onClick={handleClick}>
             {showVideo ? (
                service === 'youtube' ? (
                     <iframe 
@@ -34,19 +38,34 @@ export default function LazyVideoPlayer({ video }){
             ) : thumbnail && (
             <AnimatedButton 
                 type="button"  
-                className="animated-btn w-full h-48 md:h-64 lg:h-80 center hover:bg-gray-500 relative transition duration-500 ease-in-out text-transparent hover:text-white">
-                    <div className="absolute h-full w-full thumbnail-container top-0 left-0 overflow-hidden">
-                        <Image src={urlFor(thumbnail.asset).url()} width={560} height={315} layout="responsive" alt={title} />
+                className="animated-btn w-full h-44 md:h-64 lg:h-80 center relative transition duration-500 ease-in-out text-transparent hover:text-white">
+                    <div className="absolute h-full w-full thumbnail-container top-0 left-0 overflow-hidden -z-1">
+                        <Image 
+                            src={urlFor(thumbnail.asset).url()} 
+                            width={560} 
+                            height={315} 
+                            layout="responsive" 
+                            alt={title} />
                     </div>
-                    <h4 className="absolute left-2 top-2">{title}</h4>
-                    <div className="p-3 rounded-full bg-white shadow center z-10">
-                        <PlayIcon currentColor="#c5dec5" size="30"/>
-                    </div>
+                    <h4 className="absolute left-4 top-4 text-xl">{title}</h4>
             </AnimatedButton>
         )}
-        </div>
+        </VideoWrapper>
     )
 }
+
+const VideoWrapper = styled.div`
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.full-size-video {
+        & > iframe {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
+`
 
 const AnimatedButton = styled.button`
     @keyframes load {

@@ -4,6 +4,7 @@ export default function VideoPlayer({ title, url }){
     return (
         <div className="player-wrapper">
             <ReactPlayer 
+                className="max-w-full"
                 url={url} 
                 playing={true} 
                 controls={true}
@@ -13,6 +14,5 @@ export default function VideoPlayer({ title, url }){
                 playsinline={true}
             />
         </div>
-    )
-        
+    )    
 }
