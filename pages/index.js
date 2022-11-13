@@ -24,7 +24,7 @@ export default function Home({ videos, author, visuals, stopMotions }) {
       <section className="relative">
         <Work videos={videos} visuals={visuals} />
         {/* <StopMotion stopMotions={stopMotions} /> */}
-        <About aboutOpen={aboutOpen} author={author} />
+        <About aboutOpen={aboutOpen} setAboutOpen={setAboutOpen} author={author} />
       </section>
     </div>  
   )
