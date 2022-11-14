@@ -3,7 +3,6 @@ import Layout from '../components/Layout';
 import HomeBanner from '../components/HomeBanner';
 import Work from '../components/Work';
 import About from '../components/About';
-import StopMotion from '../components/StopMotion';
 import { videoQuery, authorQuery, visualsQuery, stopMotionQuery } from '../lib/queries';
 import { sanityClient } from '../lib/sanity.js';
 
@@ -23,7 +22,6 @@ export default function Home({ videos, author, visuals, stopMotions }) {
       <HomeBanner showWork={showWork} showAbout={showAbout} />
       <section className="relative">
         <Work videos={videos} visuals={visuals} />
-        {/* <StopMotion stopMotions={stopMotions} /> */}
         <About aboutOpen={aboutOpen} setAboutOpen={setAboutOpen} author={author} />
       </section>
     </div>  

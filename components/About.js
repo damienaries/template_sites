@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion';
+
 
 export default function About ({aboutOpen, setAboutOpen, author}) {
     const {featuredOn, about} = author;
@@ -9,7 +10,7 @@ export default function About ({aboutOpen, setAboutOpen, author}) {
     const positioning = aboutOpen ? 'left-0' : 'left-full';
 
     return (
-        <motion.section ref={aboutRef} className={`absolute z-20 top-0 h-fit bg-white/95 w-full mx-1 shadow-lg hover:bg-white rounded p-8 ${positioning}`}
+        <motion.section ref={aboutRef} className={`absolute z-20 top-0 h-fit bg-white lg:bg-white/95 w-full mx-1 shadow-lg hover:bg-white rounded p-8 ${positioning}`}
         style={{ 
             transform: isInView ? "none" : "translateX(200px)",
             opacity: isInView ? 1 : 0,

@@ -1,6 +1,6 @@
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
-export default function VideoPlayer({ url, width, height }){
+export default function VideoPlayer({ url }){
     return (
         <div className="player-wrapper">
             <ReactPlayer 
@@ -8,8 +8,6 @@ export default function VideoPlayer({ url, width, height }){
                 url={url} 
                 playing={true} 
                 controls={true}
-                width={width}
-                height={height}
                 volume={.7}
                 playsinline={true}
             />

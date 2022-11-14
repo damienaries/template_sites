@@ -8,10 +8,10 @@ export default function Work({ videos, visuals }){
     const isInView = useInView(ref, { once: true });
     
     return (
-        <div className="flex w-full mt-8 mb-20">
+        <div className="flex w-full mt-6 mb-20">
             <div
                 ref={ref} 
-                className="w-full md:w-11/12 px-4 mt-8 mb-20 mx-auto bg-white grid grid-cols-1 md:grid-cols-2" 
+                className="w-full md:w-11/12 px-4 mx-auto bg-white grid grid-cols-1 md:grid-cols-2" 
                 style={{
                     transform: isInView ? "none" : "translateY(200px)",
                     opacity: isInView ? 1 : 0,
@@ -28,7 +28,7 @@ export default function Work({ videos, visuals }){
                     <div className="visual">
                         <iframe 
                             allowFullScreen="allowFullScreen" 
-                            src={`https://www.youtube.com/shorts/hZQaI2fOg2M?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp`} 
+                            src={`${visual.url}?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp`} 
                             allowtransparency="true" 
                             frameBorder="0">
                         </iframe>

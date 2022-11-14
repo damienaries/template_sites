@@ -1,8 +1,12 @@
+import { stopMotionQuery } from '../lib/queries';
+import { sanityClient } from '../lib/sanity.js';
+import Layout from '../components/Layout';
+
 export default function StopMotion({ stopMotions }){
-    console.log(stopMotions)
+    // console.log(stopMotions)
 
     return (
-        <section className={`absolute top-0 bg-white w-full mx-1 shadow-sm rounded p-4 lg:p8`}>
+        <section className={`bg-white w-full mx-1 shadow-sm rounded p-4 lg:p8`}>
             <h2 className="font-serif text-gray-500 uppercase tracking-wider text-2xl">
                 A few examples of my stop motion work
             </h2>
@@ -25,3 +29,21 @@ export default function StopMotion({ stopMotions }){
         </section>
     )
 }
+
+StopMotion.getLayout = function getLayout(page){
+    return (
+      <Layout>
+        {page}
+      </Layout>
+    )
+  }
+  
+  export async function getStaticProps(){
+    const stopMotions = await sanityClient.fetch(stopMotionQuery)
+    
+    return {
+      props: {
+        stopMotions
+      }
+    }
+  }

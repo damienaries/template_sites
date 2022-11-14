@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 
 export default function HomeBanner ({ showWork, showAbout }) {
     const ref = useRef(null);
@@ -23,8 +24,16 @@ export default function HomeBanner ({ showWork, showAbout }) {
                     Director - Videographer - Editor - Consultant
                 </h4>
                 <div className="mt-8 flex items-center">
-                    <h4 className="nav-link mr-6 tracking-wider text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer" onClick={showWork}>Video</h4>
-                    <h4 className="nav-link mr-6 tracking-wider text-center text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer">Stop Motion</h4>
+                    <Link href="/">
+                      <a className="nav-link mr-6 tracking-wider text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer">
+                        Video
+                      </a>
+                    </Link>
+                    <Link href="/stop-motion">
+                      <a className="nav-link mr-6 tracking-wider text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer">
+                        Stop Motion
+                      </a>
+                    </Link>
                     <h4 className="nav-link tracking-wider text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer" onClick={showAbout}>About</h4>
                 </div>  
             </div>
