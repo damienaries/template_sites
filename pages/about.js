@@ -26,7 +26,11 @@ export default function About ({ author }) {
                 <h6 className="my-4">See Me Featured Here</h6>
                 <ul>
                 {featuredOn && featuredOn.map((feature, idx) => (
-                    <a href={feature.url} target="_blank" key={idx}>
+                    <a 
+                      href={feature.url} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      key={idx}>
                         <li className="my-4 text-xl text-green-300 tracking-wider hover:underline cursor-pointer transition-all duration-500 ease-in-out">{feature.title}</li>
                     </a>
                 ))}
