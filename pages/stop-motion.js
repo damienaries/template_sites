@@ -15,7 +15,7 @@ export default function StopMotion({ stopMotions }){
     const motionRef = useRef(null);
     const isInView = useInView(motionRef, { once: true });
 
-    return pageLoaded && stopMotions && (
+    return pageLoaded && (
         <motion.section 
             ref={motionRef}
             style={{ 
