@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Footer from './Footer.js';
+import HomeBanner from './HomeBanner';
+import Footer from './Footer';
 
 const Layout = ({children}) => {
     const pageTitle = `Alex Budman | ${children.type.name}`;
@@ -10,7 +11,8 @@ const Layout = ({children}) => {
                 <title>{pageTitle}</title>
                 <meta name="description" content="LA based Alex Budman video portfolio" />
             </Head>
-            <main className="main w-full">{children}</main>
+            <HomeBanner />
+            <main className="main w-full overflow-x-hidden">{children}</main>
             <Footer />
         </>
     )

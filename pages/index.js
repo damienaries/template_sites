@@ -1,30 +1,19 @@
 import {useState, useEffect} from 'react';
 import Layout from '../components/Layout';
-import HomeBanner from '../components/HomeBanner';
 import Work from '../components/Work';
-import About from '../components/About';
-import { videoQuery, authorQuery, visualsQuery, stopMotionQuery } from '../lib/queries';
+import { videoQuery, visualsQuery } from '../lib/queries';
 import { sanityClient } from '../lib/sanity.js';
 
-export default function Home({ videos, author, visuals, stopMotions }) {
+export default function Home({ videos, visuals }) {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
 
   useEffect(() => {
     setPageLoaded(true);
   }, [])
 
-  const showWork = () => setAboutOpen(false);
-  const showAbout = () => setAboutOpen(!aboutOpen);
 
   return pageLoaded && (
-    <div className="main overflow-x-hidden">
-      <HomeBanner showWork={showWork} showAbout={showAbout} />
-      <section className="relative">
-        <Work videos={videos} visuals={visuals} />
-        <About aboutOpen={aboutOpen} setAboutOpen={setAboutOpen} author={author} />
-      </section>
-    </div>  
+    <Work videos={videos} visuals={visuals} />
   )
 }
 
@@ -38,16 +27,12 @@ Home.getLayout = function getLayout(page){
 
 export async function getStaticProps(){
   const videos = await sanityClient.fetch(videoQuery);
-  const author = await sanityClient.fetch(authorQuery);
   const visuals = await sanityClient.fetch(visualsQuery);
-  const stopMotions = await sanityClient.fetch(stopMotionQuery)
   
   return {
     props: {
       videos,
-      author,
       visuals,
-      stopMotions
     }
   }
 }

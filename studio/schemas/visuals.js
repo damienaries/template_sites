@@ -19,6 +19,11 @@ export default {
             name: 'thumbnail',
             title: 'Thumbnail',
             type: 'image'
-        }
+        },
+        {
+            name:"id",
+            title: "youtubeId",
+            type: "string"
+        },
     ]
 }

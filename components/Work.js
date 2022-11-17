@@ -1,6 +1,7 @@
 import { useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
 import LazyVideoPlayer from './LazyVideoPlayer';
+import Visuals from './Visuals';
 
 
 export default function Work({ videos, visuals }){
@@ -23,18 +24,7 @@ export default function Work({ videos, visuals }){
                         ))
                     }
             </div> 
-            <aside className="hidden lg:flex flex-col items-center justify-start w-1/4">
-                {visuals && visuals.map(visual => (
-                    <div className="visual">
-                        <iframe 
-                            allowFullScreen="allowFullScreen" 
-                            src={`${visual.url}?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp`} 
-                            allowtransparency="true" 
-                            frameBorder="0">
-                        </iframe>
-                    </div>
-                ))}
-            </aside>
+            {visuals && <Visuals visuals={visuals} />}
         </div>
         
     )

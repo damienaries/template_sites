@@ -1,26 +1,41 @@
-// import Image from 'next/image';
-import Layout from '../components/Layout'
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { authorQuery } from '../lib/queries';
+import { sanityClient } from '../lib/sanity.js';
+import Layout from '../components/Layout';
 
-export default function About({ author }) {
+export default function About ({ author }) {
+    const {featuredOn, about} = author;
+    const aboutRef = useRef(null);
+    const isInView = useInView(aboutRef, { once: true });
 
-    return ( 
-        <div className="about-container h-full w-full bg-gray-100 flex content-center">
-            <div className="about-content w-11/12 lg:w-8/12 mx-auto py-8 px-12 shadow border border-red-500 flex w-full">
-            <div className="left full md:w-1/3">
-                <h1>{author.name}</h1>
-                {/* <p>Author bio?</p> */}
-                <h4>Email me <span className="">{author.email}</span></h4>
-                <h4>@{author.website}</h4>
-            </div>
-            <div className="right flex-1 border border-green-500">
-                <div className="w-full h-full bg-green-200">
-                    image placeholder
-                </div>
-            </div>
-            </div>
-        </div>
-     );
+    return author && (
+        <motion.section ref={aboutRef} className="h-fit w-full md:w-11/12 mx-auto shadow-lg bg-white rounded p-8"
+        style={{ 
+            transform: isInView ? "none" : "translateX(100%)",
+            opacity: isInView ? 1 : 0,
+            transition: "all .5s cubic-bezier(0.72, 0.37, 0, 0.76)" 
+        }}>
+            <h2 className="font-serif text-gray-500 uppercase tracking-wider text-2xl flex justify-between items-center">
+                How it Happens
+            </h2>
+            <p className="text-black tracking-wide mt-4 lg:text-xl">
+                {about}
+            </p>
+            <section className="mt-12 text-black text-xl">
+                <h6 className="my-4">See Me Featured Here</h6>
+                <ul>
+                {featuredOn && featuredOn.map((feature, idx) => (
+                    <a href={feature.url} target="_blank" key={idx}>
+                        <li className="my-4 text-xl text-green-300 tracking-wider hover:underline cursor-pointer transition-all duration-500 ease-in-out">{feature.title}</li>
+                    </a>
+                ))}
+                </ul>
+            </section>
+        </motion.section>
+    )
 }
+
 
 About.getLayout = function getLayout(page){
     return (
@@ -30,13 +45,12 @@ About.getLayout = function getLayout(page){
     )
   }
 
-  export async function getStaticProps(props) {
-    const author = await fetch('https://jsonplaceholder.typicode.com/users/1')
-    .then(response => response.json());
-
+  export async function getStaticProps(){
+    const author = await sanityClient.fetch(authorQuery);
+    
     return {
       props: {
         author,
-      } 
+      }
     }
   }

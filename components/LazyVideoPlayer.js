@@ -5,7 +5,7 @@ import Image from "next/image";
 import { urlFor } from "../lib/sanity";
 import { motion } from "framer-motion";
 
-// play expand to full width
+// TODO play expand to full width
 
 export default function LazyVideoPlayer({ video }){
     const { id, service, thumbnail, title } = video;
@@ -27,10 +27,10 @@ export default function LazyVideoPlayer({ video }){
                 onClick={handleClick}>
                 {showVideo ? (
                     service === 'youtube' ? (
-                        <VideoPlayer url={`https://www.youtube.com/embed/${id}?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560`}/>
+                        <VideoPlayer url={`https://www.youtube-nocookie.com/embed/${id}`}/>
                         ) : (
                             // Or Vimeo
-                            <VideoPlayer url={`https://player.vimeo.com/${id}`}/>
+                            <VideoPlayer url={`http://player.vimeo.com/${id}`}/>
                         )
                     ) : thumbnail && (
                         <motion.button 
@@ -47,9 +47,10 @@ export default function LazyVideoPlayer({ video }){
                                         height={315} 
                                         layout="responsive" 
                                         alt={title} 
+                                        priority={true}
                                         className="hover:opacity-30 transition duration-500 ease-in-out hover:cursor-pointer" />
+                                    <h4 className="absolute left-4 top-1/2 text-3xl">{title}</h4>
                                 </div>
-                                <h4 className="absolute left-4 top-1/2 text-3xl">{title}</h4>
                         </motion.button>
                 )}
                 {isPlaying && (
@@ -68,7 +69,6 @@ export default function LazyVideoPlayer({ video }){
 }
 
 const VideoWrapper = styled.div`
-    
     
     &.full-size-video {
         position: initial;

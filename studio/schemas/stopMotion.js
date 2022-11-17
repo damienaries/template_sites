@@ -15,6 +15,11 @@ export default {
             validation: Rule => Rule.required()
         },
         {
+            name:"id",
+            title: "youtubeId",
+            type: "string"
+        },
+        {
             name: 'thumbnail',
             title: 'Thumbnail',
             type: 'image'
