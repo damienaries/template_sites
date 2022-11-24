@@ -4,6 +4,8 @@ import { authorQuery } from '../lib/queries';
 import { sanityClient } from '../lib/sanity.js';
 import Layout from '../components/Layout';
 
+// image background or other visual?
+
 export default function About ({ author }) {
     const {featuredOn, about} = author;
     const aboutRef = useRef(null);

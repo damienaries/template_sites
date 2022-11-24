@@ -1,5 +1,5 @@
 import { useInView } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import LazyVideoPlayer from './LazyVideoPlayer';
 import Visuals from './Visuals';
 
@@ -12,7 +12,7 @@ export default function Work({ videos, visuals }){
         <div className="flex w-full mt-6 mb-20">
             <div
                 ref={ref} 
-                className="w-full md:w-11/12 px-4 mx-auto bg-white grid grid-cols-1 md:grid-cols-2" 
+                className="w-full md:w-11/12 px-4 mx-auto bg-white grid grid-cols-1 md:grid-cols-2 gap-4" 
                 style={{
                     transform: isInView ? "none" : "translateY(200px)",
                     opacity: isInView ? 1 : 0,
