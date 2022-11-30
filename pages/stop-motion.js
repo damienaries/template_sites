@@ -12,7 +12,7 @@ export default function StopMotion({ stopMotions }){
     useEffect(() => {
       setPageLoaded(true);
     }, [])
-
+    
     return pageLoaded && (
         <section  
         ref={stopMotionRef}

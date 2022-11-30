@@ -8,13 +8,13 @@ export default function Visuals({ visuals }){
     const isInView = useInView(visualRef, { once: true });
 
     return (
-        <motion.aside 
+        <aside 
             ref={visualRef}
             style={{ 
                 opacity: isInView ? 1 : 0,
-                transition: "all 1s cubic-bezier(0.72, 0.37, 0, 0.76)"
+                transition: "all 5s cubic-bezier(0.72, 0.37, 0, 0.76)"
             }}
-            className="hidden lg:flex flex-col items-center justify-start w-1/4 mt-0">
+            className="hidden lg:flex flex-col items-center justify-start w-1/4 mt-0 ml-4">
             {visuals && visuals.map((visual, idx) => (
                 <div className="visual max-w-full mb-8" key={idx}>
                     <iframe src={`https://www.youtube.com/embed/${visual.id}?ecver=1&amp;iv_load_policy=3&amp;loop=1&amp;rel=0&amp;showinfo=0&amp;autohide=1&amp&secure`} 
@@ -24,6 +24,6 @@ export default function Visuals({ visuals }){
                     </iframe>
                 </div>
             ))}
-        </motion.aside>
+        </aside>
     )
 }
