@@ -2,7 +2,7 @@ import ReactPlayer from "react-player";
 
 export default function VideoPlayer({ 
     url, 
-    controls = true, 
+    controls = false, 
     autoplay = false, 
     loop = false 
   }){
@@ -13,7 +13,7 @@ export default function VideoPlayer({
                 url={url} 
                 playing={autoplay} 
                 controls={controls}
-                volume={.7}
+                volume={.6}
                 playsinline={true}
                 loop={loop}
             />
