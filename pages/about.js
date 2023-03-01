@@ -2,10 +2,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Layout from "../components/Layout";
 
-// image background or other visual?
+// image background or other visual
 
-export default function About({ author }) {
-  const { featuredOn, about } = author;
+export default function About() {
+  const author = {
+    featuredOn: ["BBC", "CNN"],
+    about: "I am a cool video producer based in LA",
+  };
   const aboutRef = useRef(null);
   const isInView = useInView(aboutRef, { once: true });
 
@@ -23,12 +26,14 @@ export default function About({ author }) {
         <h2 className="font-serif text-gray-500 uppercase tracking-wider text-2xl flex justify-between items-center">
           How it Happens
         </h2>
-        <p className="text-black tracking-wide mt-4 lg:text-xl">{about}</p>
+        <p className="text-black tracking-wide mt-4 lg:text-xl">
+          {author.about}
+        </p>
         <section className="mt-12 text-black text-xl">
           <h6 className="my-4">See Me Featured Here</h6>
           <ul>
-            {featuredOn &&
-              featuredOn.map((feature, idx) => (
+            {author.featuredOn &&
+              author.featuredOn.map((feature, idx) => (
                 <a
                   href={feature.url}
                   target="_blank"

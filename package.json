@@ -1,19 +1,16 @@
 {
-  "name": "albudman_video",
+  "name": "video_template_1",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "sanity": "cd studio && sanity start",
     "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@portabletext/react": "^1.0.6",
-    "@sanity/image-url": "^1.0.1",
     "framer-motion": "^7.6.6",
     "next": "12.3.1",
     "next-sanity": "^0.8.4",
