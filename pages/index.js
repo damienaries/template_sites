@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Work from "../components/Work";
 
+/***********************************
+  TODO
+    create data.json file: images, video links, author object
+    import on index videos and for visuals some images - hidden on mobile?
+    
+ **************************************/
+
 export default function Home({ videos, visuals }) {
   const [pageLoaded, setPageLoaded] = useState(false);
 

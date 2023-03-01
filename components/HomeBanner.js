@@ -21,7 +21,7 @@ export default function HomeBanner() {
           Lorem Ipsum
         </h1>
         <h4 className="uppercase text-sm md:text-base">
-          Director - Videographer - Editor - Consultant
+          Director - Videographer - Photography - Consultant
         </h4>
         <Nav />
       </div>

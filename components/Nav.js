@@ -8,7 +8,7 @@ export default function Nav() {
           Video
         </a>
       </Link>
-      <Link href="/stop-motion">
+      <Link href="/projects">
         <a className="nav-link mr-6 tracking-wider text-md md:text-xl hover:text-gray-600 hover:underline cursor-pointer">
           Projects
         </a>
