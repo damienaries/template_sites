@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
+import { projects } from "../backend/data";
 import Layout from "../components/Layout";
 import Work from "../components/Work";
 
 /***********************************
   TODO
-    create data.json file: images, video links, author object
-    import on index videos and for visuals some images - hidden on mobile?
-    
+    write docs and readMe  
  **************************************/
 
-export default function Home({ videos, visuals }) {
+export default function Home() {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const { video, photo } = projects;
 
   useEffect(() => {
     setPageLoaded(true);
   }, []);
 
-  return pageLoaded && <Work videos={videos} visuals={visuals} />;
+  return pageLoaded && <Work videos={video} photos={photo} />;
 }
 
 Home.getLayout = function getLayout(page) {

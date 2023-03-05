@@ -1,7 +1,8 @@
 import { useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
-export default function Visuals({ visuals }) {
+export default function Visuals({ photos }) {
   const visualRef = useRef(null);
   const isInView = useInView(visualRef, { once: true });
 
@@ -14,15 +15,21 @@ export default function Visuals({ visuals }) {
       }}
       className="hidden lg:flex flex-col items-center justify-start w-1/4 mt-0 ml-4"
     >
-      {visuals &&
-        visuals.map((visual, idx) => (
-          <div className="visual max-w-full mb-8" key={idx}>
-            <iframe
-              src={`https://www.youtube.com/embed/${visual.id}?ecver=1&amp;iv_load_policy=3&loop=1&amp;rel=0&amp;showinfo=0&amp;autohide=1&amp&secure&controls=0`}
-              width="100%"
-              height="315"
-              frameBorder="0"
-            ></iframe>
+      {photos &&
+        photos.map((photo, idx) => (
+          <div
+            className="max-w-full mb-8 h-72 overflow-hidden w-full"
+            key={idx}
+          >
+            <Image
+              src={photo.url}
+              width={100}
+              height={150}
+              layout="responsive"
+              alt={photo.title}
+              priority={true}
+              className="hover:scale-110 transition duration-500 ease-in-out hover:cursor-pointer"
+            />
           </div>
         ))}
     </aside>

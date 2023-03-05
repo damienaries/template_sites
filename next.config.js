@@ -4,9 +4,9 @@ const nextConfig = {
   swcMinify: true,
   rewrites: () => [STUDIO_REWRITE],
   images: {
-    domains: ['via.placeholder.com', 'cdn.sanity.io'],
-  }
-}
+    domains: ["via.placeholder.com", "source.unsplash.com"],
+  },
+};
 
 const STUDIO_REWRITE = {
   source: "/studio/:path*",
@@ -16,4 +16,4 @@ const STUDIO_REWRITE = {
       : "/studio/index.html",
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

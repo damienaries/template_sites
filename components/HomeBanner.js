@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { author } from "../backend/data";
 import Nav from "../components/Nav";
 
 export default function HomeBanner() {
@@ -18,10 +19,10 @@ export default function HomeBanner() {
     >
       <div className="hero-content w-full lg:w-1/2 text-left p-6">
         <h1 className="text-4xl md:text-6xl xl:text-7xl text-black font-semibold font-extrabold tracking-widest font-sans uppercase mt-6">
-          Lorem Ipsum
+          {author.name}
         </h1>
         <h4 className="uppercase text-sm md:text-base">
-          Director - Videographer - Photography - Consultant
+          {author.services.join(" - ")}
         </h4>
         <Nav />
       </div>

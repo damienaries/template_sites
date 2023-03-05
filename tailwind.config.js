@@ -7,30 +7,26 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Figtree'],
-        'serif': ['Cormorant']
+        sans: ["Figtree"],
+        serif: ["Cormorant"],
       },
       colors: {
-        'black': '#000011',
-        'white': '#ffffff',
+        black: "#000011",
+        white: "#ffffff",
         gray: {
-          '100': '#fcfffc',
-          '500': '#b5aeb1'
+          100: "#fcfffc",
+          500: "#b5aeb1",
         },
         green: {
-          '100': '#c5dec5',
-          '300': '#9fb39f'
+          100: "#c5dec5",
+          300: "#9fb39f",
         },
-        pink: {
-          '100': '#ffe6f2',
-        }
-
       },
       spacing: {
-        '4': '1rem',
-        '8': '2rem'
-      }
+        4: "1rem",
+        8: "2rem",
+      },
     },
   },
   plugins: [],
-}
+};

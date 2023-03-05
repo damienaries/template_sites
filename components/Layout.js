@@ -9,10 +9,7 @@ const Layout = ({ children }) => {
     <>
       <Head>
         <title>{pageTitle}</title>
-        <meta
-          name="description"
-          content="LA based Alex Budman video portfolio"
-        />
+        <meta name="description" content="Video & photo portfolio template" />
       </Head>
       <HomeBanner />
       <main className="main w-full overflow-x-hidden">{children}</main>
