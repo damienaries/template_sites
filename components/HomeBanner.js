@@ -1,4 +1,5 @@
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 import { author } from "../backend/data";
 import Nav from "../components/Nav";
@@ -18,9 +19,12 @@ export default function HomeBanner() {
       className="hero w-full h-1/4 bg-gray-100 shadow-lg relative mb-6 md:mb-12"
     >
       <div className="hero-content w-full lg:w-1/2 text-left p-6">
-        <h1 className="text-4xl md:text-6xl xl:text-7xl text-black font-semibold font-extrabold tracking-widest font-sans uppercase mt-6">
-          {author.name}
-        </h1>
+        <Link href="/">
+          <h1 className="text-4xl md:text-6xl xl:text-7xl text-black font-semibold font-extrabold tracking-widest font-sans uppercase mt-6">
+            {author.name}
+          </h1>
+        </Link>
+
         <h4 className="uppercase text-sm md:text-base">
           {author.services.join(" - ")}
         </h4>

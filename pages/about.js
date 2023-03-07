@@ -3,17 +3,16 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { author } from "../backend/data";
 import Layout from "../components/Layout";
+import authorImg from "../public/assets/author-pic.jpg";
 
 export default function About() {
   const aboutRef = useRef(null);
   const isInView = useInView(aboutRef, { once: true });
-  const AuthorImg = author.image;
 
   const StyledAbout = styled.div`
     height: 100%;
     width: 100%;
-    min-height: 400px;
-    background-image: url(${AuthorImg});
+    min-height: 600px;
     padding: 2rem;
   `;
 
@@ -26,6 +25,12 @@ export default function About() {
           transform: isInView ? "none" : "translateX(100%)",
           opacity: isInView ? 1 : 0,
           transition: "all .5s cubic-bezier(0.72, 0.37, 0, 0.76)",
+          backgroundImage: `linear-gradient(30deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(${authorImg.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          width: "100%",
+          height: "100%",
         }}
       >
         <StyledAbout>
