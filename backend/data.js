@@ -42,18 +42,21 @@ module.exports = {
     photo: [
       {
         title: "Project 1",
+        slug: "project_1",
         date: "2021",
         client: "Client 1",
         url: "https://source.unsplash.com/random?people,nature",
       },
       {
         title: "Project 2",
+        slug: "project_2",
         date: "2021",
         client: "Client 2",
         url: "https://source.unsplash.com/random?fashion",
       },
       {
         title: "Project 3",
+        slug: "project_3",
         date: "2022",
         client: "Client 3",
         url: "https://source.unsplash.com/random?awards",

@@ -1,10 +1,18 @@
 import { useInView } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 export default function Visuals({ photos }) {
   const visualRef = useRef(null);
   const isInView = useInView(visualRef, { once: true });
+
+  const showTitleOverlay = (slug) => {
+    document.querySelector(`.${slug}`).classList.remove("hidden");
+  };
+  const hideTitleOverlay = (slug) => {
+    document.querySelector(`.${slug}`).classList.add("hidden");
+  };
 
   return (
     <aside
@@ -16,21 +24,36 @@ export default function Visuals({ photos }) {
       className="hidden lg:flex flex-col items-center justify-start w-1/4 mt-0 ml-4"
     >
       {photos &&
-        photos.map((photo, idx) => (
-          <div
-            className="max-w-full mb-8 h-72 overflow-hidden w-full"
-            key={idx}
+        photos.map((photo) => (
+          <Link
+            href={`/projects#${photo.slug}`}
+            key={photo.slug}
+            class=" h-fit w-fit overflow-hidden"
           >
-            <Image
-              src={photo.url}
-              width={100}
-              height={150}
-              layout="responsive"
-              alt={photo.title}
-              priority={true}
-              className="hover:scale-110 transition duration-500 ease-in-out hover:cursor-pointer"
-            />
-          </div>
+            <div
+              className="max-w-full mb-8 h-72 overflow-hidden w-full relative cursor-pointer transition-all duration-500 hover:scale-105 transition duration-500 ease-in-out"
+              key={photo.slug}
+              onMouseEnter={() => showTitleOverlay(photo.slug)}
+              onMouseLeave={() => hideTitleOverlay(photo.slug)}
+            >
+              <Image
+                src={photo.url}
+                width={100}
+                height={150}
+                layout="responsive"
+                alt={photo.title}
+                priority={true}
+                className=" cursor-pointer"
+              />
+              <div
+                className={`${photo.slug} hidden w-full h-full absolute top-0 left-0 z-10 bg-white opacity-75 text-gray-900 flex flex-col items-center justify-end p-4 transition-all`}
+              >
+                <span className="text-4xl">{photo.title}</span>
+                <span className="text-xl py-4">{photo.client}</span>
+                <span className="tetx-xl">{photo.date}</span>
+              </div>
+            </div>
+          </Link>
         ))}
     </aside>
   );

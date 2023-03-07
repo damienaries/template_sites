@@ -4,8 +4,6 @@ import LazyVideoPlayer from "./LazyVideoPlayer";
 import Visuals from "./Visuals";
 
 /*****************
- todo for each video project fetch a placeholder poster
- load random video to be used in video player 
  Visuals sidebar => photo project placeholder. hide on small but has its own page 
  ****************/
 
