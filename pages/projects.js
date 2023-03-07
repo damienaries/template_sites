@@ -1,14 +1,18 @@
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { projects } from "../backend/data";
 import Layout from "../components/Layout";
-
 /************************************
+ * TODO build page
+ * Add slug as id for navigation target and seo
  * Each project a row, horizontal scroll
  *
  ************************************/
 
-export default function Projects({ projects }) {
+export default function Projects() {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const { photo } = projects;
   const projectRef = useRef(null);
   const isInView = useInView(projectRef, { once: true });
 
@@ -24,17 +28,27 @@ export default function Projects({ projects }) {
           transform: pageLoaded ? "none" : "translateX(-200%)",
           transition: "all 1.5s cubic-bezier(0.72, 0.37, 0, 0.76)",
         }}
-        className="bg-white w-full mx-1 shadow-sm rounded p-4 lg:p-8 flex flex-col :flex-row"
+        className="bg-white w-full mx-1 shadow-sm rounded p-4 lg:p-8"
       >
-        {projects &&
-          projects.map((sm, idx) => (
-            <div className="h-full w-11/12 mx-auto my-4 shadow" key={idx}>
-              <iframe
-                src={`https://www.youtube.com/embed/${sm.id}?ecver=1&amp;iv_load_policy=3&amp;loop=1&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&controls=0`}
-                width="100%"
-                height="315"
-                frameBorder="0"
-              ></iframe>
+        {photo &&
+          photo.map((photo, idx) => (
+            <div
+              className="w-full mx-auto my-4 shadow flex items-center justify-start overflow-x-scroll overflow-y-none"
+              style={{ height: "600px" }}
+              key={idx}
+              id={photo.slug}
+            >
+              <div style={{ height: "100%", width: "400px" }}>
+                <Image
+                  src={photo.url}
+                  width={100}
+                  height={150}
+                  layout="responsive"
+                  alt={photo.title}
+                  priority={true}
+                />
+              </div>
+              {/* for each photo in photo.images -> image */}
             </div>
           ))}
       </motion.section>

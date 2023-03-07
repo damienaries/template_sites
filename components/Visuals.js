@@ -31,7 +31,7 @@ export default function Visuals({ photos }) {
             class=" h-fit w-fit overflow-hidden"
           >
             <div
-              className="max-w-full mb-8 h-72 overflow-hidden w-full relative cursor-pointer transition-all duration-500 hover:scale-105 transition duration-500 ease-in-out"
+              className="max-w-full mb-8 h-72 overflow-hidden w-full relative cursor-pointer transition-all duration-500"
               key={photo.slug}
               onMouseEnter={() => showTitleOverlay(photo.slug)}
               onMouseLeave={() => hideTitleOverlay(photo.slug)}
@@ -46,7 +46,7 @@ export default function Visuals({ photos }) {
                 className=" cursor-pointer"
               />
               <div
-                className={`${photo.slug} hidden w-full h-full absolute top-0 left-0 z-10 bg-white opacity-75 text-gray-900 flex flex-col items-center justify-end p-4 transition-all`}
+                className={`${photo.slug} hidden w-full h-full absolute top-0 left-0 z-10 bg-white opacity-75 text-gray-900 flex flex-col items-center justify-end p-4 transition-all duration-500 ease-in-out`}
               >
                 <span className="text-4xl">{photo.title}</span>
                 <span className="text-xl py-4">{photo.client}</span>
