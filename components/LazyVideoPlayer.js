@@ -2,10 +2,9 @@ import styled from "@emotion/styled";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import CloseIcon from "./icons/CloseIcon";
 import PlayIcon from "./icons/PlayIcon";
 import VideoPlayer from "./VideoPlayer";
-
-// TODO on play expand to full width
 
 export default function LazyVideoPlayer({ video }) {
   const { url, client, date, title } = video;
@@ -32,12 +31,12 @@ export default function LazyVideoPlayer({ video }) {
       >
         {showVideo ? (
           <div className="video-modal flex items-center justify-center">
-            <div className="modal-content px-2 md:px-4 py-4 md:py-8 bg-gray-500 w-full">
+            <div className="modal-content px-2 md:px-4 py-4 md:py-8 bg-gray-100 w-full">
               <div
-                className="h-8 w-full flex justify-end items-center text-gray-900 px-4 bg-gray-500"
+                className="h-8 w-full flex justify-end items-center text-gray-900 px-4 bg-gray-100"
                 onClick={handleClick}
               >
-                X
+                <CloseIcon currentColor="black" size="20" />
               </div>
               <div className="flex flex-col md:flex-row">
                 <VideoPlayer
@@ -46,7 +45,9 @@ export default function LazyVideoPlayer({ video }) {
                   autoplay={true}
                 />
                 <div className="h-full w-full text-left p-2">
-                  <p>Project descrption</p>
+                  <p className="mt-4 md:mt-0 mb-4 text-lg">
+                    Project descrption
+                  </p>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Atque est alias nihil maxime ipsa rerum praesentium
@@ -93,11 +94,7 @@ export default function LazyVideoPlayer({ video }) {
             className="text-black text-lg hover:cursor-pointer hover:text-gray-500"
             onClick={() => setIsPlaying(!isPlaying)}
           >
-            {isPlaying ? (
-              <span>X</span>
-            ) : (
-              <PlayIcon currentColor="black" size="20" />
-            )}
+            <PlayIcon currentColor="black" size="20" />
           </span>
         </motion.div>
       </motion.div>

@@ -3,11 +3,6 @@ import { projects } from "../backend/data";
 import Layout from "../components/Layout";
 import Work from "../components/Work";
 
-/***********************************
-  TODO
-    write docs and readMe  
- **************************************/
-
 export default function Home() {
   const [pageLoaded, setPageLoaded] = useState(false);
   const { video, photo } = projects;

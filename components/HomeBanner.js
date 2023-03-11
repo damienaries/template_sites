@@ -20,14 +20,12 @@ export default function HomeBanner() {
     >
       <div className="hero-content w-full lg:w-1/2 text-left p-6">
         <Link href="/">
-          <h1 className="text-4xl md:text-6xl xl:text-7xl text-black font-semibold font-extrabold tracking-widest font-sans uppercase mt-6">
+          <h1 className="text-3xl md:text-5xl text-black font-semibold font-extrabold tracking-widest font-sans uppercase mt-6">
             {author.name}
           </h1>
         </Link>
 
-        <h4 className="uppercase text-sm md:text-base">
-          {author.services.join(" - ")}
-        </h4>
+        <h4 className="uppercase text-sm">{author.services.join(" - ")}</h4>
         <Nav />
       </div>
     </motion.section>

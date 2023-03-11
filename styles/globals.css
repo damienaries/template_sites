@@ -6,10 +6,23 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Figtree', sans-serif;
+  font-family: "Figtree", sans-serif;
 }
 
-a, a:visited {
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #fcfffc, #fcfffc);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to left, #c5dec5, #9fb39f);
+  border-radius: 10px;
+}
+
+a,
+a:visited {
   color: inherit;
   text-decoration: none;
 }
@@ -18,16 +31,17 @@ a, a:visited {
   box-sizing: border-box;
 }
 
-main, .main {
+main,
+.main {
   min-height: 95vh;
   width: 100%;
+  max-width: 2000px;
 }
-
 
 /*  Utilities */
 
 .center {
- display: flex;
- justify-content: center;
- align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

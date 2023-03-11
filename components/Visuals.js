@@ -28,10 +28,10 @@ export default function Visuals({ photos }) {
           <Link
             href={`/projects#${photo.slug}`}
             key={photo.slug}
-            class=" h-fit w-fit overflow-hidden"
+            class="h-fit w-fit overflow-hidden"
           >
             <div
-              className="max-w-full mb-8 h-72 overflow-hidden w-full relative cursor-pointer transition-all duration-500"
+              className="max-w-full mb-8 h-72 overflow-hidden w-full relative cursor-pointer transition-all duration-500 shadow"
               key={photo.slug}
               onMouseEnter={() => showTitleOverlay(photo.slug)}
               onMouseLeave={() => hideTitleOverlay(photo.slug)}
